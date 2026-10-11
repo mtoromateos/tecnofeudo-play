@@ -72,9 +72,9 @@
     padding-bottom:calc(8px + env(safe-area-inset-bottom));box-sizing:border-box;background:var(--panel);border-top:1px solid var(--borde)}
   .ficha{flex:none;width:210px;display:flex;gap:6px;font-size:12px}
   .ficha canvas{width:80px;height:100%;flex:none;background:radial-gradient(circle at 50% 70%,#23282f,transparent 70%)}
-  .equipo{flex:none;width:170px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
-  .equipo .carta{width:auto;min-height:0}
-  .equipo .carta p{display:none}
+  .zonaEquipo{flex:none;width:170px;overflow-y:auto;display:flex;flex-direction:column;gap:6px}
+  .zonaEquipo .carta{width:auto;min-height:0}
+  .zonaEquipo .carta p{display:none}
   .mano{flex:1;display:flex;gap:8px;overflow-x:auto;overflow-y:hidden;align-items:flex-start}
   .compra{flex:1;overflow-y:auto;font-size:13px}
   .compra p{margin:4px 0}
@@ -138,11 +138,15 @@
     .combate p{display:none}
     .mizona{height:min(290px,44vh);flex-wrap:wrap;gap:6px}
     .acciones{bottom:calc(min(290px,44vh) + 8px)}
-    .ficha{width:auto;flex:1;height:70px}
+    .ficha{width:auto;flex:1 1 38%;height:86px;overflow:hidden;min-width:0}
     .ficha canvas{width:56px}
-    .equipo{width:auto;flex:1;height:70px;flex-direction:row;overflow-x:auto}
-    .equipo .carta{width:110px}
-    .mano{flex-basis:100%;height:calc(100% - 80px)}
+    .ficha small{display:none}
+    .zonaEquipo{width:auto;flex:1 1 56%;min-width:0;height:86px;flex-direction:row;align-items:stretch;overflow-x:auto;overflow-y:hidden}
+    /* Cartas de equipo compactas: sin tipo, texto pequeño y scroll propio si hay botones. */
+    .zonaEquipo .carta{width:132px;padding:4px 6px;font-size:11px;overflow-y:auto}
+    .zonaEquipo .carta .tipo{display:none}
+    .zonaEquipo .carta b{font-size:12px;margin:0}
+    .mano{flex-basis:100%;height:calc(100% - 96px)}
     #panelTrato .columnas{grid-template-columns:1fr}
     #panelChat{top:46px;height:200px}
     .barra{font-size:12px;padding:6px 8px}
